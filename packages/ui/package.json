@@ -1,0 +1,38 @@
+{
+  "name": "@remotion-template/ui",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@remotion-template/theme": "*"
+  },
+  "peerDependencies": {
+    "react": ">=18"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.17",
+    "typescript": "~6.0.3"
+  },
+  "nx": {
+    "projectType": "library",
+    "sourceRoot": "packages/ui/src",
+    "tags": [
+      "type:ui",
+      "scope:shared"
+    ],
+    "targets": {
+      "typecheck": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "tsc --noEmit",
+          "cwd": "packages/ui"
+        }
+      }
+    }
+  }
+}

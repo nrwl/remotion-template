@@ -1,0 +1,60 @@
+{
+  "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "namedInputs": {
+    "default": [
+      "{projectRoot}/**/*",
+      "sharedGlobals"
+    ],
+    "production": [
+      "default",
+      "!{projectRoot}/out/**/*"
+    ],
+    "sharedGlobals": []
+  },
+  "targetDefaults": {
+    "build": {
+      "cache": true,
+      "inputs": [
+        "production",
+        "^production"
+      ],
+      "outputs": [
+        "{projectRoot}/dist"
+      ]
+    },
+    "serve": {
+      "cache": false
+    },
+    "bundle": {
+      "cache": true,
+      "inputs": [
+        "production",
+        "^production"
+      ],
+      "outputs": [
+        "{projectRoot}/out/bundle"
+      ]
+    },
+    "render": {
+      "cache": false,
+      "outputs": [
+        "{projectRoot}/out"
+      ]
+    },
+    "studio": {
+      "cache": false
+    },
+    "typecheck": {
+      "cache": true,
+      "inputs": [
+        "production",
+        "^production",
+        {
+          "externalDependencies": [
+            "typescript"
+          ]
+        }
+      ]
+    }
+  }
+}

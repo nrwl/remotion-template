@@ -1,0 +1,57 @@
+{
+  "name": "@remotion-template/website",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@remotion-template/compositions": "*",
+    "@remotion-template/theme": "*",
+    "@remotion/player": "^4.0.481",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "remotion": "^4.0.481"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.0",
+    "typescript": "~6.0.3",
+    "vite": "^8.0.0"
+  },
+  "nx": {
+    "projectType": "application",
+    "sourceRoot": "apps/website/src",
+    "tags": [
+      "type:app",
+      "scope:website"
+    ],
+    "targets": {
+      "serve": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "vite",
+          "cwd": "apps/website"
+        }
+      },
+      "build": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "vite build",
+          "cwd": "apps/website"
+        }
+      },
+      "typecheck": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "tsc --noEmit",
+          "cwd": "apps/website"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "name": "@remotion-template/social",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "studio": "remotion studio src/index.ts",
+    "render": "remotion render src/index.ts PromoCard --output out/social-promo.mp4",
+    "bundle": "remotion bundle src/index.ts --out-dir out/bundle"
+  },
+  "dependencies": {
+    "@remotion-template/animations": "*",
+    "@remotion-template/compositions": "*",
+    "@remotion-template/theme": "*",
+    "@remotion-template/ui": "*",
+    "@remotion/cli": "^4.0.481",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "remotion": "^4.0.481"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "typescript": "~6.0.3"
+  },
+  "nx": {
+    "projectType": "application",
+    "sourceRoot": "apps/social/src",
+    "tags": [
+      "type:app",
+      "scope:social"
+    ],
+    "targets": {
+      "studio": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "remotion studio src/index.ts",
+          "cwd": "apps/social"
+        }
+      },
+      "render": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "remotion render src/index.ts PromoCard --output out/social-promo.mp4",
+          "cwd": "apps/social"
+        }
+      },
+      "bundle": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "remotion bundle src/index.ts --out-dir out/bundle",
+          "cwd": "apps/social"
+        }
+      },
+      "typecheck": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "tsc --noEmit",
+          "cwd": "apps/social"
+        }
+      }
+    }
+  }
+}
